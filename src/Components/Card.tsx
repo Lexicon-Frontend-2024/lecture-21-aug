@@ -1,15 +1,17 @@
-interface CardProps {
-    info: string;
-    name: string;
-    age?: number;
-}
+import { CardProps } from "../assets/interfaces";
 
-export default function Card({info, name, age}: CardProps) {
-    return (
-        <article>
-            <h2>{name}</h2>
-            <p>{age}y/o</p>
-            <p>{info}</p>
-        </article>
-    )
+export default function Card({ info, name, age, show }: CardProps) {
+    if (show) {
+        return (
+            <article>
+                <h2>{name}</h2>
+                {/* ternary operator */}
+                {age > 4 ? <p>{age}y/o</p> : <p>Underage</p>}
+                <p>{info}</p>
+            </article>
+        )
+    } else {
+        return null;
+    }
+
 };

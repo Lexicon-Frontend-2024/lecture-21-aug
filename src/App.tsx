@@ -1,23 +1,27 @@
 import './App.css'
+import { CardProps } from './assets/interfaces'
 import Card from './Components/Card'
 
 function App() {
   // skapa en lista med massa personer där deras namn, info o ålder finns
-  const animalList = [
+  const animalList: CardProps[] = [
     {
       info: "random leafy info",
       name: "Koala",
-      age: 2
+      age: 2,
+      show: true
     },
     {
       info: "random clawy info",
       name: "Bear",
-      age: 5
+      age: 5,
+      show: true
     },
     {
       info: "random stripey info",
       name: "Tiger",
-      age: 5
+      age: 10,
+      show: false
     }
   ];
   return (
@@ -26,7 +30,7 @@ function App() {
       {/* mappa över den listan och skicka ett kort i taget */}
       {
         animalList.map((animal, i) => (
-          <Card info={animal.info} name={animal.name} age={animal.age} key={i} />
+          <Card info={animal.info} name={animal.name} age={animal.age} show={animal.show} key={i} />
         ))
       }
     </main>
